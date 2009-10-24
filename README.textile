@@ -1,4 +1,4 @@
-h1. Usage (by Fabio Akita)
+h1. Usage
 
 In your home directory (Linux or Mac), run:
 
