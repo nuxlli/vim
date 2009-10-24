@@ -1,0 +1,109 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd /usr/local/webco/brasigo
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +464 app/models/question.rb
+badd +75 app/controllers/questions_controller.rb
+badd +227 app/views/questions/show.html.erb
+badd +143 app/views/questions/index.html.erb
+badd +10 app/views/shared/_new_list_questions.erb
+badd +254 config/routes.rb
+badd +255 app/helpers/application_helper.rb
+badd +58 lib/pageable.rb
+badd +134 test/functional/questions_controller_test.rb
+badd +1 app/controllers/application.rb
+badd +17 app/controllers/replies_controller.rb
+badd +371 test/unit/question_test.rb
+badd +35 app/views/shared/_reply.html.erb
+badd +25 app/views/replies/index.html.erb
+badd +38 app/controllers/specials_controller.rb
+badd +232 app/views/specials/christmas_2008_question.html.erb
+badd +1 app/views/specials/_christmas_best_answer.erb
+badd +1 app/views/specials/christmas_2008.html.erb
+badd +1 app/views/specials/_christmas_promo_text.html.erb
+badd +1 app/views/specials/_christmas_register_text.erb
+badd +1 app/views/specials/_mail_footer.html.erb
+badd +1 app/views/specials/_promo_personal_feed.html.erb
+badd +1 app/views/specials/_promo_social_feed.html.erb
+badd +1 app/views/specials/_simplified_list_questions.html.erb
+badd +1 app/views/specials/_simplified_list_questions_locked.html.erb
+badd +1 app/views/specials/_simplified_list_questions_winners.erb
+badd +1 app/views/specials/blogactionday_2008.html.erb
+badd +21 app/views/specials/campusparty_2009.html.erb
+badd +9 test/functional/specials_controller_test.rb
+badd +49 test/functional/replies_controller_test.rb
+badd +118 spec/controllers/replies_controller_spec.rb
+badd +45 app/controllers/stats_controller.rb
+badd +32 config/initializers/constants.rb
+badd +19 app/controllers/feeds_controller.rb
+badd +0 app/models/tagging.rb
+badd +0 config/initializers/specials_constants.rb
+silent! argdel *
+set lines=73 columns=235
+edit test/functional/specials_controller_test.rb
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 117 + 117) / 235)
+exe 'vert 2resize ' . ((&columns * 117 + 117) / 235)
+argglobal
+setlocal fdm=indent
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=3
+setlocal nofen
+let s:l = 9 - ((8 * winheight(0) + 35) / 71)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+9
+normal! 090l
+wincmd w
+argglobal
+edit config/initializers/specials_constants.rb
+setlocal fdm=indent
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=3
+setlocal nofen
+let s:l = 39 - ((38 * winheight(0) + 35) / 71)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+39
+normal! 0
+wincmd w
+exe 'vert 1resize ' . ((&columns * 117 + 117) / 235)
+exe 'vert 2resize ' . ((&columns * 117 + 117) / 235)
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . s:sx
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
