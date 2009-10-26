@@ -4,7 +4,7 @@ In your home directory (Linux or Mac), run:
 
 <pre><code>
 mv ~/.vim ~/vim_old # backup your old .vim folder
-git clone git://github.com/lucasfais/vimfiles.git ~/.vim
+git clone git://github.com/pahagon/vimfiles.git ~/.vim
 
 mv ~/.vimrc ~/vimrc_old
 ln -s ~/.vim/vimrc ~/.vimrc
@@ -13,7 +13,7 @@ ln -s ~/.vim/vimrc ~/.vimrc
 If you're using Windows do the following under C:\Documents and Settings\Your_User
 
 <pre><code>
-git clone git://github.com/lucasfais/vimfiles.git vimfiles
+git clone git://github.com/pahagon/vimfiles.git vimfiles
 </code></pre>
 
 Still on Windows, run the following command in a Command Prompt console:
